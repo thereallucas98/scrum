@@ -15,5 +15,6 @@ const userController = new UserController;
 router.post('/user', userController.create);
 router.put('/user/:id', userController.edit);
 router.get('/user', userController.listAllUsers);
+router.get('/user/:id', userController.GetAnUser);
 
 export default router;

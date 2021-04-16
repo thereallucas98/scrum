@@ -70,6 +70,24 @@ class UserController {
 
     return response.status(201).json(allUsers);
   }
+
+  async GetAnUser(request: Request, response: Response) {
+    const { id } = request.params;
+
+    const usersRepository = getCustomRepository(UserRepository);
+
+    const getUser = await usersRepository.findOneOrFail(id);
+
+    return response.status(200).json({
+      getUser
+    })
+
+    // console.log(id);
+
+    // return response.status(201).json({
+    //   id: id
+    // })
+  }
 }
 
 export { UserController };
