@@ -13,6 +13,10 @@ export class CreateProjects1618531593525 implements MigrationInterface {
                         isPrimary: true,
                     },
                     {
+                        name: "name",
+                        type: "varchar",
+                    },
+                    {
                         name: "description",
                         type:"text",
                     },
@@ -39,6 +43,8 @@ export class CreateProjects1618531593525 implements MigrationInterface {
                     {
                         name: "finished_date",
                         type: "timestamp",
+                        default: null,
+                        isNullable: true,
                     },
                     {
                         name: "created_at",

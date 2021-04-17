@@ -88,6 +88,34 @@ class UserController {
     //   id: id
     // })
   }
+
+  async delete(request: Request, response: Response) {
+    const { id } = request.params;
+
+    const usersRepository = getCustomRepository(UserRepository);
+
+    const getUser = await usersRepository.findOne(id);
+
+    console.log(getUser);
+
+    if (getUser != undefined) {
+      await usersRepository.delete(id).then((res) => {
+        return response.status(200).json({
+          message: 'Usuário deletado com sucesso!'
+        })
+      }).catch((error) => {
+        console.log(error);
+      })
+    } else {
+      return response.status(400).json({
+        message: 'usuário não existe no banco!'
+      })
+    }
+
+    
+
+
+  }
 }
 
 export { UserController };

@@ -18,6 +18,9 @@ class Projects {
   user: User;
 
   @Column()
+  name: string;
+
+  @Column()
   description: string;
 
   @Column()
