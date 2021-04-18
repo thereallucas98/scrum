@@ -66,14 +66,59 @@ class ProjectsController {
       status,
     } = request.body;
 
-    if (status === 2 || status === 3) {
+    const projectsRepository = getCustomRepository(ProjectRepository);
 
+    const projectVerified = await projectsRepository.findOneOrFail({
+      id
+    });
+
+    console.log(projectVerified);
+
+    if (projectVerified.status == 2 || projectVerified.status == 3) {
+      return response.status(401).json({
+        message: 'Projeto está com status de Cancelado ou Concluído, logo não pode ser alterado!'
+      })
+
+    } else {
+      const data = {
+        description,
+        viability,
+        status,
+      }
+
+      console.log('É mudou!')
+      await projectsRepository.update(id, data);
+      const projectUpdated = await projectsRepository.findOneOrFail(id);
+      return response.status(200).json({
+        projectUpdated
+      });
     }
 
-    const data = {
-      description,
-      viability,
-      status,
+
+    
+  }
+
+  async delete(request: Request, response: Response) {
+    const { id } = request.params;
+
+    const projectsRepository = getCustomRepository(ProjectRepository);
+
+    const getProject = await projectsRepository.findOne(id);
+
+    console.log(getProject);
+
+    if (getProject != undefined) {
+      await projectsRepository.delete(id).then((res) => {
+        return response.status(200).json({
+          message: 'Project deleted'
+        });
+      }).catch((error) => {
+        console.log(error);
+      });
+    } else {
+      return response.status(400).json({
+        message: 'User does NOT exist in database'
+      });
     }
   }
 }

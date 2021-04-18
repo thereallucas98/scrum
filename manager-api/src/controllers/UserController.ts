@@ -63,7 +63,7 @@ class UserController {
     return response.status(200).json(userUpdate);
   }
 
-  async listAllUsers(request: Request, response: Response) {
+  async list(request: Request, response: Response) {
     const usersRepository = getCustomRepository(UserRepository);
 
     const allUsers = await usersRepository.find();
