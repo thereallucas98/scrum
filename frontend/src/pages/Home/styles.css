@@ -89,18 +89,6 @@
   justify-content: space-between;
 }
 
-.sr-only {
-  position: absolute;
-  width: 1px;
-  height: 1px;
-  padding: 0;
-  margin: -1px;
-  overflow: hidden;
-  clip: rect(0, 0, 0, 0);
-  white-space: nowrap;
-  border-width: 0;
-}
-
 /* Info */
 
 #summary .info {
@@ -178,4 +166,5 @@
 /* Main */
 .container main {
   margin-top: -2.825rem;
+  padding: 2rem;
 }

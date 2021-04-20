@@ -56,6 +56,12 @@ function Home() {
 
         <div className="cards">
           <Card />
+          <Card />
+          <Card />
+          <Card />
+          <Card />
+          <Card />
+          <Card />
         </div>
       </main>
     </div>
