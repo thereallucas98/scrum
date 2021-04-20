@@ -8,19 +8,19 @@
   --color-background: #F0F2F5;
   --color-text: #FCFDFF;
 
-  --color-primary: #41414C;
-  --color-secondary: #F1972C;
-  --color-secondary-hover: #FA9C2D;
+  --color-primary: #00A0E6;
+  --color-secondary: #FCFDFF;
+  --color-secondary-hover: #0AD2DC;
   
   --color-input-background: #F8F8FC;
   --color-button-text: #FFFFFF;
-  --color-hairline-in-dark: #4F4F5B;
+  --color-hairline-in-dark: #0AD2DC;
   --color-hairline-in-light: #E1E3E5;
 
   --color-card-background: var(--color-text);
-  --color-card-title: #5A5A66;
+  --color-card-title: #0AD2DC;
   --color-card-label: #BFBFCC;
-  --color-card-content: #787880;
+  --color-card-content: #0AD2DC;
 
   --color-cancel: #E1E3E5;
   --color-delete: #EB3B35; 
@@ -66,8 +66,9 @@ a {
   clip: rect(0, 0, 0, 0);
   white-space: nowrap;
   border-width: 0;
-}
+} */
 
+/* 
 .separator {
   height: 1px;
   background-color: var(--color-hairline-in-dark);

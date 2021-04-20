@@ -4,7 +4,7 @@
 }
 
 .container header {
-  height: 220px;
+  height: 280px;
   background: var(--color-primary);
 
   padding: 2rem;
@@ -15,6 +15,8 @@
 
   flex-direction: column; */
 }
+
+/* Top */
 
 .container header #top {
   display: flex;
@@ -31,17 +33,149 @@
   font-size: 1rem;
 }
 
+#notification img {
+  margin-right: 0.5rem;
+}
+
 #avatar-profile {
   display: flex;
   align-items: center;
   
 }
 
+#avatar-profile p {
+  font-size: 1.25rem;
+  line-height: 1.875rem;
+  margin-right: 1.25rem;
+
+  font-weight: 600;
+}
+
+#avatar-profile span {
+  display: block;
+
+  font-weight: normal;
+  font-size: 0.875rem;
+  line-height: 1.5rem;
+
+  font-weight: 400;
+}
+
+#avatar-profile p span:hover {
+  text-decoration: underline;
+  color:var(--color-secondary);
+}
+
 #avatar-profile img {
   width: 4rem;
   height: 4rem;
+  border-radius: 50%;
+  border: 0.156rem solid #0AD2DC;
+}
 
-  border-radius: 2rem;
+.separator-line {
+  height: 1px;
+  background-color: var(--color-hairline-in-dark);
+  margin: 1rem 0;
+}
 
-  margin-left: 0.5rem;
+/* Summary */
+
+.container header #summary {
+  margin-top: 2rem;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}
+
+/* Info */
+
+#summary .info {
+  display:flex;
+  font-family: Inter;
+
+  margin-bottom: 2rem;
+}
+
+.info > div {
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.625rem;
+  
+  margin-right: 2.5rem;
+}
+
+.info > div > strong {
+  display: block;
+  
+  font-size: 1.5rem;
+  font-weight: 700;
+  line-height: 1.625rem;
+}
+
+/* Info Button */
+#summary .button {
+  padding: 0.75rem 1.25rem 0.75rem 0.75rem;
+  margin-bottom: 2.5rem;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  background: var(--color-primary);
+
+  color: var(--color-text);
+
+  border-radius: 0.6rem;
+
+  transition: 1.2s;
+}
+
+#summary .button:hover {
+  background: var(--color-secondary-hover);
+}
+
+#summary .button span::before {
+  width: 2rem;
+  height: 2rem;
+  content: " "; 
+  background-color: var(--color-background);
+  opacity: 0.16;
+  border-radius: 0.313rem;
+
+  position: absolute;
+}
+
+#summary .button span {
+  width: 2rem;
+  height: 2rem;
+
+  margin-right: 2rem;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#summary .button span img {
+  width: 1.5rem;
+  height: 1.5rem;
+}
+
+/* Main */
+.container main {
+  margin-top: -2.825rem;
 }
