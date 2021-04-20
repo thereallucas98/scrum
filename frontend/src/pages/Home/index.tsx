@@ -10,8 +10,8 @@ import './styles.css';
 function Home() {
   return (
     <div className="container">
-      <header>
-        <section id="top">
+      <header className="home-header">
+        <section id="top" className="animate-up">
           <h2>Dashboard</h2>
           <span id="notification">
             <img src={Notification} alt="Alert" />
@@ -25,7 +25,7 @@ function Home() {
 
         <div className="separator-line"></div>
 
-        <section id="summary">
+        <section id="summary" className="animate-up delay-1">
           <h2 className="sr-only">Informações</h2>
 
           <div className="info">
@@ -42,7 +42,7 @@ function Home() {
               Concluído
             </div>
           </div>
-          <a href="" className="button">
+          <a href="/add-project" className="button">
             <span>
               <img src={AddProject} alt="New Project" />
             </span>
@@ -51,7 +51,7 @@ function Home() {
         </section>
       </header>
 
-      <main>
+      <main className="animate-up delay-2">
         <h1 className="sr-only">Trabalhos</h1>
 
         <div className="cards">

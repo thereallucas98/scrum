@@ -1,9 +1,9 @@
 .container {
-  width: 100vw;
+  width: 100%;
   height: 100vh;
 }
 
-.container header {
+.container header.home-header {
   height: 280px;
   background: var(--color-primary);
 
