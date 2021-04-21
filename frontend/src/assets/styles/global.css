@@ -41,12 +41,24 @@ body {
 }
 
 body,
-input,
-button,
 textarea {
   font: 500 1rem Inter;
   color: var(--color-text);
   border: none;
+}
+
+input,
+button,
+textarea {
+  font: 500 1rem Inter;
+  color: var(--color-card-label);
+  border: none;
+}
+
+textarea {
+  resize: vertical;
+  min-height: 140px;
+  max-height: 250px;
 }
 
 a {
@@ -68,7 +80,7 @@ a {
   border-width: 0;
 }
 
-/* 
+
 .separator {
   height: 1px;
   background-color: var(--color-hairline-in-dark);
@@ -78,7 +90,7 @@ a {
 .separator.light {
   background-color: #E1E3E5;
 }
-*/
+
 .flex {
   display: flex;
 }

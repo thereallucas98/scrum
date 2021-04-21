@@ -1,8 +1,34 @@
-header.page-header {
+.page-header {
   background: var(--color-primary);
   width: 100%;
   padding-top: 2rem;
   padding-bottom: 3rem;
 
-  height: 4rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.page-header.inner {
+  height: 5.5rem;
+  margin-bottom: 4rem;
+}
+
+.page-header.inner {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  padding-left: 1rem;
+}
+
+.page-header.inner h1 {
+  margin: 0 auto;
+
+  font-family: Inter;
+  font-weight: 600;
+  font-size: 2rem;
+  line-height: 1.625rem;
+
+  color: var(--color-text);
 }
