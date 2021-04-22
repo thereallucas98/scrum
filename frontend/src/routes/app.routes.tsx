@@ -3,6 +3,7 @@ import { Switch, Route, BrowserRouter } from 'react-router-dom';
 
 import AddJob from '../pages/AddJob';
 import Home from '../pages/Home';
+import Profile from '../pages/Profile';
 
 const AppRoutes: React.FC = () => {
   return (
@@ -10,6 +11,7 @@ const AppRoutes: React.FC = () => {
       <Switch>
         <Route path="/" exact component={Home} />
         <Route path="/add-project" component={AddJob} />
+        <Route path="/profile" component={Profile} />
       </Switch>
     </BrowserRouter>
 

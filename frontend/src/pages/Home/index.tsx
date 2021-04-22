@@ -17,7 +17,7 @@ function Home() {
             <img src={Notification} alt="Alert" />
             Você está em 0 projetos!
           </span>
-          <a id="avatar-profile">
+          <a id="avatar-profile" href="/profile">
             <p>David Lucas<span>Meu Perfil</span></p>
             <img src="https:github.com/thereallucas98.png" />
           </a>

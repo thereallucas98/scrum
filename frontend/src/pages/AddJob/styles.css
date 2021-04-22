@@ -10,15 +10,15 @@
   justify-content: center;
 }
 
-form fieldset {
+.container-project form fieldset {
   border: none;
 }
 
-form fieldset + fieldset {
+.container-project form fieldset + fieldset {
   margin-top: 3.5rem;
 }
 
-form fieldset legend {
+.container-project form fieldset legend {
   color: var(--color-card-title);
 
   font-family: IBM Plex Sans;
@@ -27,24 +27,24 @@ form fieldset legend {
   line-height: 2.625rem;
 }
 
-fieldset .separator {
+.container-project fieldset .separator {
   margin-bottom: 2rem;
 }
 
-form .input-group {
+.container-project form .input-group {
   display: flex;
   margin-top: 1.5rem;
 }
 
-form .input-wrapper {
+.container-project form .input-wrapper {
   margin-top: 1.5rem;
 }
 
-form .input-group .input-wrapper + .input-wrapper {
+.container-project form .input-group .input-wrapper + .input-wrapper {
   margin-left: 1.5rem;
 }
 
-label {
+.container-project label {
   display: inline-block;
 
   font-family: IBM Plex Sans;
@@ -54,7 +54,11 @@ label {
   margin-bottom: 1rem;
 }
 
-input, textarea {
+.container-project input {
+  height: 3rem;
+}
+
+.container-project input, textarea {
   font-family: IBM Plex Sans;
   font-weight: 500;
 
@@ -84,7 +88,7 @@ input, textarea {
   margin: 2rem 0;
   background: var(--color-save);
   
-  height: 4rem;
+  height: 3rem;
 
   border: 0;
   border-radius: 0.5rem;
