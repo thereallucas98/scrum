@@ -1,4 +1,5 @@
 import React, { useState, FormEvent } from 'react';
+import { useHistory } from "react-router-dom";
 import { toast, ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
@@ -7,8 +8,11 @@ import api from '../../services/api';
 import './styles.css';
 
 function CreateAccount() {
+  const succeded = () => toast.success(`Opa! O seu cadastro foi realizado com sucesso no sistema.`);
   const emptyNotification = () => toast.error('Um dos campos podem estar vazio, verifique');
-  const hasUserNotify = (email: string, name: string) => toast.info(`O email: ${email} está cadastrado no usuário ${name}!`);
+  const hasUserNotify = () => toast.warning(`Ops! Este e-mail já está cadastrado no sistema.`);
+
+  const history = useHistory();
 
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
@@ -22,12 +26,32 @@ function CreateAccount() {
       return;
     }
 
-    const hasUser = await api.get(`get-user?email=${email}`);
+    // const hasUser = await api.get(`get-user?email=${email}`);
 
-    if (hasUser) {
-      hasUserNotify(hasUser.data.res.email, hasUser.data.res.name);
-    }
+    // if (hasUser) {
+    //   setEmail('');
+    //   hasUserNotify(hasUser.data.res.email);
+    // }
 
+    const data = {
+      name,
+      email,
+      password,
+      can_create: true,
+    };
+
+    console.log(data);
+
+    await api.post('user', data).then((res) => {
+      console.log(res.data.name)
+      alert('Opa! Seu cadastro foi realizado com sucesso');
+        
+      history.push('/');
+
+    }).catch((error) => {
+      hasUserNotify()
+      console.log(error);
+    })
   }
 
   return (

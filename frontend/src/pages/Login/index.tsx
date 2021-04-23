@@ -1,12 +1,16 @@
 import React from 'react';
+import { useHistory } from "react-router-dom";
+import { toast, ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 import './styles.css';
 
-import Photo from '../../assets/img/heloo.svg';
+// import Photo from '../../assets/img/heloo.svg';
 
 function Login() {
+  const history = useHistory();
   function handleSubmit() {
-    alert('')
+    history.push('/dashboard');
   }
   return (
     <div className="container-login">
@@ -36,6 +40,7 @@ function Login() {
             </button>
           <a href="/create-account">Não possui conta? Crie uma!</a>
         </form>
+        <ToastContainer autoClose={3000} />
       </section>
     </div>
   );
