@@ -72,16 +72,27 @@ class UserController {
   }
 
   async GetAnUser(request: Request, response: Response) {
-    const { id } = request.params;
+    const { email } = request.query;
+
+    if (!email) {
+      return response.status(400).json({
+        error: 'Missing data to search User'
+      });
+    }
 
     const usersRepository = getCustomRepository(UserRepository);
 
-    const getUser = await usersRepository.findOneOrFail(id);
-
-    return response.status(200).json({
-      getUser
+    await usersRepository.findOneOrFail({
+      email: String(email)
+    }).then((res) => {
+      return response.status(200).json({
+        res
+      });
+    }).catch((error) => {
+      return response.status(400).json({
+        message: 'Client not found'
+      })
     })
-
     // console.log(id);
 
     // return response.status(201).json({
@@ -101,14 +112,14 @@ class UserController {
     if (getUser != undefined) {
       await usersRepository.delete(id).then((res) => {
         return response.status(200).json({
-          message: 'Usuário deletado com sucesso!'
+          message: 'User deleted'
         })
       }).catch((error) => {
         console.log(error);
       })
     } else {
       return response.status(400).json({
-        message: 'usuário não existe no banco!'
+        message: 'User does NOT exist in database'
       })
     }
 
