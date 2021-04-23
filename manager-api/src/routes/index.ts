@@ -2,6 +2,7 @@ import { Router } from 'express';
 
 import authMiddleware from '../middlewares/authMiddleware';
 
+import AuthController from '../controllers/AuthController';
 import { ProjectsController } from '../controllers/ProjectController';
 import { UserController } from '../controllers/UserController';
 
@@ -19,6 +20,9 @@ router.put('/user/:id', userController.edit);
 router.get('/user', userController.list);
 router.get('/get-user', userController.GetAnUser);
 router.delete('/user/:id', userController.delete);
+
+// Auth User
+router.post('/auth', AuthController.authenticate);
 
 // Project Routes
 router.post('/project', projectController.create);
