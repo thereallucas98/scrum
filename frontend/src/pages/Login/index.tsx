@@ -5,6 +5,9 @@ import './styles.css';
 import Photo from '../../assets/img/heloo.svg';
 
 function Login() {
+  function handleSubmit() {
+    alert('')
+  }
   return (
     <div className="container-login">
       <div />
@@ -28,7 +31,7 @@ function Login() {
               />
             </div>
           </fieldset>
-          <button>
+          <button onClick={handleSubmit}>
             Acessar
             </button>
           <a href="/create-account">Não possui conta? Crie uma!</a>
