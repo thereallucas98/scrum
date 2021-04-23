@@ -1,0 +1,97 @@
+.container-login {
+  width: 100%;
+  height: 100vh;
+  margin: 0 auto;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  /* text-align: center; */
+}
+
+/* .container-login a {
+  margin: auto;
+} */
+
+.container-login section {
+  max-width: 35rem;
+  width: 100%;
+  height: 100vh;
+  background: var(--color-primary);
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.container-login form fieldset {
+  border: none;
+}
+
+.container-login form fieldset legend {
+  color: var(--color-text);
+  
+  text-align: center;
+  font-family: IBM Plex Sans;
+  font-weight: 600;
+  font-size: 2rem;
+  line-height: 2.625rem;
+}
+
+.container-login form .input-wrapper {
+  margin-top: 1.5rem;
+}
+
+.container-login label {
+  display: inline-block;
+
+  font-family: IBM Plex Sans;
+  font-weight: 500;
+  color: var(--color-text);
+
+  margin-bottom: 1rem;
+}
+
+.container-login input {
+  font-family: IBM Plex Sans;
+  font-weight: 500;
+
+  height: 3rem;
+
+  background: #FCFDFF;
+
+  border: 1px solid #E1E3E6;
+  border-radius: .313rem;
+
+  padding: 0.75rem 1.5rem;
+
+  width: 100%;
+
+  color: var(--color-card-label);
+}
+
+::placeholder {
+  color: var(--color-card-label);
+}
+
+.input-wrapper{
+  width: 100%;
+}
+
+.container-login button {
+  width: 100%;
+  height: 3rem;
+  border-radius: 0.5rem;
+
+  margin-top: 1.2rem;
+  margin-bottom: 1rem;
+
+  background: var(--color-save);
+  color: var(--color-text);
+
+  transition: 0.5s;
+
+  cursor: pointer;
+}
+
