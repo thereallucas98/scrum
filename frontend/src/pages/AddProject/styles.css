@@ -54,6 +54,10 @@
   margin-bottom: 1rem;
 }
 
+.container-project p {
+  color: var(--color-card-label);
+}
+
 .container-project input {
   height: 3rem;
 }
@@ -82,7 +86,7 @@
   width: 100%;
 }
 
-.container-project main form button {
+.container-project main form button.button {
   width: 100%;
 
   margin: 2rem 0;
