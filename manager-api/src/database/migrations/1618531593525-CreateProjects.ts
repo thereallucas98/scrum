@@ -29,10 +29,6 @@ export class CreateProjects1618531593525 implements MigrationInterface {
                         type: "interger",
                     },
                     {
-                        name: "price",
-                        type: "varchar",
-                    },
-                    {
                         name: "start_date",
                         type: "timestamp"
                     },

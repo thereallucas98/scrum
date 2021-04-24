@@ -72,27 +72,38 @@ class UserController {
   }
 
   async GetAnUser(request: Request, response: Response) {
-    const { email } = request.query;
+    
+    const { id } = request.params;
 
-    if (!email) {
-      return response.status(400).json({
-        error: 'Missing data to search User'
-      });
-    }
+    const userRepository = getCustomRepository(UserRepository);
 
-    const usersRepository = getCustomRepository(UserRepository);
+    const user = await userRepository.findOne({
+      id
+    });
 
-    await usersRepository.findOneOrFail({
-      email: String(email)
-    }).then((res) => {
-      return response.status(200).json({
-        res
-      });
-    }).catch((error) => {
-      return response.status(400).json({
-        message: 'Client not found'
-      })
-    })
+    return response.status(200).json(user);
+    
+    // const { email } = request.query;
+
+    // if (!email) {
+    //   return response.status(400).json({
+    //     error: 'Missing data to search User'
+    //   });
+    // }
+
+    // const usersRepository = getCustomRepository(UserRepository);
+
+    // await usersRepository.findOneOrFail({
+    //   email: String(email)
+    // }).then((res) => {
+    //   return response.status(200).json({
+    //     res
+    //   });
+    // }).catch((error) => {
+    //   return response.status(400).json({
+    //     message: 'Client not found'
+    //   })
+    // })
     // console.log(id);
 
     // return response.status(201).json({

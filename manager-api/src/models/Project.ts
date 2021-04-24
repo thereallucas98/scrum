@@ -29,9 +29,6 @@ class Projects {
   @Column()
   status: number;
 
-  @Column()
-  price: string;
-
   @CreateDateColumn()
   start_date: Date;
 

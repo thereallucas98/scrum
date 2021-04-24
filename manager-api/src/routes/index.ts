@@ -3,6 +3,7 @@ import { Router } from 'express';
 import authMiddleware from '../middlewares/authMiddleware';
 
 import AuthController from '../controllers/AuthController';
+import { SearchProjectsController } from '../controllers/SearchProjectsController';
 import { ProjectsController } from '../controllers/ProjectController';
 import { UserController } from '../controllers/UserController';
 
@@ -11,6 +12,7 @@ const router = Router();
 
 const userController = new UserController;
 const projectController = new ProjectsController;
+const searchController = new SearchProjectsController;
 
 // Routes
 
@@ -18,7 +20,7 @@ const projectController = new ProjectsController;
 router.post('/user', userController.create);
 router.put('/user/:id', userController.edit);
 router.get('/user', userController.list);
-router.get('/get-user', userController.GetAnUser);
+router.get('/user/:id', userController.GetAnUser);
 router.delete('/user/:id', userController.delete);
 
 // Auth User
@@ -28,8 +30,11 @@ router.post('/auth', AuthController.authenticate);
 router.post('/project', projectController.create);
 router.get('/projects', projectController.list);
 router.patch('/project/:id', projectController.edit);
-router.delete('project/:id', projectController.delete);
+router.delete('project/:id', projectController.delete); 
 
-router.post('/test', projectController.test);
+// Project Filters
+router.get('/projects/:id', searchController.headerFilters);
+
+// router.post('/test', projectController.test);
 
 export default router;

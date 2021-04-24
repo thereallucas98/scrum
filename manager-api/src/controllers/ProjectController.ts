@@ -11,7 +11,6 @@ class ProjectsController {
       description,
       viability,
       status,
-      price,
       start_date,
       expected_finished_date,
       responsible
@@ -29,7 +28,6 @@ class ProjectsController {
       description,
       viability,
       status,
-      price,
       start_date,
       expected_finished_date,
       finished_date: null,
@@ -45,62 +43,62 @@ class ProjectsController {
     })
   }
 
-  async test(request: Request, response: Response) {
-    const {
-      name,
-      description,
-      viability,
-      status,
-      price,
-      start_date,
-      expected_finished_date,
-      responsible
-    } = request.body;
+  // async test(request: Request, response: Response) {
+  //   const {
+  //     name,
+  //     description,
+  //     viability,
+  //     status,
+  //     price,
+  //     start_date,
+  //     expected_finished_date,
+  //     responsible
+  //   } = request.body;
 
-    const userRepository = getCustomRepository(UserRepository);
-    const projectRepository = getCustomRepository(ProjectRepository);
+  //   const userRepository = getCustomRepository(UserRepository);
+  //   const projectRepository = getCustomRepository(ProjectRepository);
 
-    const user = await userRepository.findOne({
-      id: responsible
-    });
+  //   const user = await userRepository.findOne({
+  //     id: responsible
+  //   });
     
-    const project = projectRepository.create({
-      name,
-      description,
-      viability,
-      status,
-      price,
-      start_date,
-      expected_finished_date,
-      finished_date: null,
-      user,
-    });
+  //   const project = projectRepository.create({
+  //     name,
+  //     description,
+  //     viability,
+  //     status,
+  //     price,
+  //     start_date,
+  //     expected_finished_date,
+  //     finished_date: null,
+  //     user,
+  //   });
 
-    await projectRepository.save(project)
+  //   await projectRepository.save(project)
 
-    let counter = 1;
-    while (counter < 10) {
-      const project = projectRepository.create({
-        name:`${name} #${counter}`,
-        description,
-        viability,
-        status,
-        price,
-        start_date,
-        expected_finished_date,
-        finished_date: null,
-        user,
-      });
+  //   let counter = 1;
+  //   while (counter < 10) {
+  //     const project = projectRepository.create({
+  //       name:`${name} #${counter}`,
+  //       description,
+  //       viability,
+  //       status,
+  //       price,
+  //       start_date,
+  //       expected_finished_date,
+  //       finished_date: null,
+  //       user,
+  //     });
 
-      await projectRepository.save(project) 
-      counter++
-    }
+  //     await projectRepository.save(project) 
+  //     counter++
+  //   }
 
-    return response.status(200).json({
-      message: 'Project and Sub Projects was created!'
-    })
+  //   return response.status(200).json({
+  //     message: 'Project and Sub Projects was created!'
+  //   })
 
-  }
+  // }
 
   async list(request: Request, response: Response) {
     const projectsRepository = getCustomRepository(ProjectRepository);
@@ -108,7 +106,8 @@ class ProjectsController {
     const all = await projectsRepository.find({ 
       order: {
         viability: "DESC",
-      }
+      },
+      relations: ["user"]
     })
 
     return response.status(201).json(all);
