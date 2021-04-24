@@ -5,7 +5,7 @@ import Select from '../../components/Select';
 
 import './styles.css';
 
-function AddJob() {
+function AddProject() {
   function handleSubmit(e: FormEvent) {
     e.preventDefault();
     alert('oi')
@@ -84,4 +84,4 @@ function AddJob() {
   );
 }
 
-export default AddJob;
+export default AddProject;

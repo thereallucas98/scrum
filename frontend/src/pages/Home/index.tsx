@@ -3,11 +3,15 @@ import React from 'react';
 import Notification from '../../assets/img/alert-octagon.svg';
 import AddProject from '../../assets/img/plus-24.svg';
 
+import { useAuth } from '../../contexts/auth';
+
 import Card from '../../components/Card';
 
 import './styles.css';
 
 function Home() {
+  const { user } = useAuth();
+
   return (
     <div className="container">
       <header className="home-header">
@@ -18,7 +22,7 @@ function Home() {
             Você está em 0 projetos!
           </span>
           <a id="avatar-profile" href="/profile">
-            <p>David Lucas<span>Meu Perfil</span></p>
+            <p>{user?.name}<span>Meu Perfil</span></p>
             <img src="https:github.com/thereallucas98.png" />
           </a>
         </section>

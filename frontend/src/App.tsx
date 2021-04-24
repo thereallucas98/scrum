@@ -1,12 +1,23 @@
 import React from 'react';
-import { Router } from 'react-router-dom';
+import { BrowserRouter, Router, Switch } from 'react-router-dom';
+
+import { AuthProvider } from './contexts/auth';
+import history from './contexts/history';
 import Routes from './routes/index';
 
 import './assets/styles/global.css';
 
 function App() {
   return (
-      <Routes />
+    <AuthProvider>
+      <BrowserRouter>
+        <Switch>
+          <Router history={history}>
+            <Routes />
+          </Router>
+        </Switch>
+      </BrowserRouter>
+    </AuthProvider>
   );
 }
 
