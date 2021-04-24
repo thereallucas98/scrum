@@ -8,7 +8,7 @@ import api from '../../services/api';
 import './styles.css';
 
 function Profile() {
-  const { user } = useAuth();
+  const { user, signOut } = useAuth();
 
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
@@ -29,6 +29,10 @@ function Profile() {
     loadUserData();
   }, [])
 
+  async function handleLogout() {
+    await signOut();
+  }
+
   return (
     <div className="container-profile animate-up delay-2">
       <Header headerTitle="Meu Perfil" />
@@ -38,7 +42,8 @@ function Profile() {
           <img src="http://github.com/thereallucas98.png" alt="David Lucas" />
           <h2>{user?.name}</h2>
 
-          <button>Salvar Dados</button>
+          <button className="button">Salvar Dados</button>
+          <button className="button" onClick={handleLogout}>Sair</button>
         </aside>
         <main>
           <form action="">

@@ -61,6 +61,7 @@ export const AuthProvider: React.FC = ({ children }) => {
 
       setUser(user);
 
+      history.push('/dashboard');
     } catch (error) {
       if (error.response?.data) {
         console.log(error.response.data.error);
@@ -73,6 +74,8 @@ export const AuthProvider: React.FC = ({ children }) => {
 
     setUser(null);
     setLoading(false);
+
+    history.push('/');
   }
 
   return(

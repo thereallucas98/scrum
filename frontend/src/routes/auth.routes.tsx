@@ -15,10 +15,12 @@ const AuthRoutes: React.FC = () => {
     return <Loading />
   } else {
     return (
-      <Switch>
-        <Route path="/" exact component={Login} />
-        <Route path="/create-account" component={CreateAccount} />
-      </Switch>
+      <BrowserRouter>
+        <Switch>
+          <Route path="/" exact component={Login} />
+          <Route path="/create-account" component={CreateAccount} />
+        </Switch>
+      </BrowserRouter>
     );
   }
 }

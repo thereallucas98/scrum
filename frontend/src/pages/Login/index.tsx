@@ -30,7 +30,7 @@ function Login() {
       await signIn(email, password).then((resp) => {
         console.log(resp);
 
-        history.push('/dashboard');
+        // history.push('/dashboard');
       }).catch((error) => {
         console.log("error", error);
       })

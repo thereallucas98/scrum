@@ -11,7 +11,7 @@ import Profile from '../pages/Profile';
 const AppRoutes: React.FC = () => {
   const { loading } = useAuth();
   if (loading) {
-    return (<Loading />)
+    return <Loading />
   } else {
     return (
       <Switch>
