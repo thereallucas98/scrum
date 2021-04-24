@@ -1,6 +1,6 @@
 .card {
   display: grid;
-  grid-template-columns: 40% 20% 12% 14% 12%;
+  grid-template-columns: 40% 25% 15% 20%;
   align-items: center;
 
   margin-bottom:  0.5rem;

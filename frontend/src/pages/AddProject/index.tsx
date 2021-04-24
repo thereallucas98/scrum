@@ -1,12 +1,10 @@
 import React, { FormEvent, useState } from 'react';
 import { useHistory } from 'react-router-dom';
 import { toast, ToastContainer } from 'react-toastify';
-import { parseISO, format, formatRelative, formatDistance, parse } from 'date-fns';
 
 import { useAuth } from '../../contexts/auth';
 
 import api from '../../services/api';
-import pt from 'date-fns/locale/pt';
 
 import Header from '../../components/Header';
 import Select from '../../components/Select';
@@ -73,19 +71,6 @@ function AddProject() {
     } else {
       history.goBack();
     }
-
-    // const parsedStartDate = parseISO(data.startDate);
-    // const parsedExpectedDate = parseISO(data.expectedFinishDate);
-
-    // const distance = formatDistance(
-    //   parsedStartDate,
-    //   parsedExpectedDate,
-    //   {
-    //     locale: pt
-    //   }
-    // )
-
-    // console.log(distance);
     
   }
   return (

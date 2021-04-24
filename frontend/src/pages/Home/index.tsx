@@ -1,26 +1,50 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 
 import Notification from '../../assets/img/alert-octagon.svg';
 import AddProject from '../../assets/img/plus-24.svg';
 
 import { useAuth } from '../../contexts/auth';
 
-import Card from '../../components/Card';
+import Card, { Project } from '../../components/Card';
 
 import './styles.css';
+import api from '../../services/api';
 
 function Home() {
   const { user } = useAuth();
+
+  const [allProjects, setAllProjects] = useState([]);
+  const [totalProjects, setTotalProjects] = useState('');
+  const [developing, setDeveloping] = useState('');
+  const [finished, setFinished] = useState('');
+
+  useEffect(() => {
+    async function loadData() {
+      const response = await api.get(`projects/${user?.id}`);
+
+      console.log(response.data);
+
+      setTotalProjects(response.data.totalProjects);
+      setDeveloping(response.data.totalDeveloping);
+      setFinished(response.data.totalFinished);
+
+      setAllProjects(response.data.total);
+    }
+
+    loadData();
+  }, [allProjects, totalProjects, developing, finished])
+
+
 
   return (
     <div className="container">
       <header className="home-header">
         <section id="top" className="animate-up">
           <h2>Dashboard</h2>
-          <span id="notification">
+          {/* <span id="notification">
             <img src={Notification} alt="Alert" />
             Você está em 0 projetos!
-          </span>
+          </span> */}
           <a id="avatar-profile" href="/profile">
             <p>{user?.name}<span>Meu Perfil</span></p>
             <img src="https:github.com/thereallucas98.png" />
@@ -34,15 +58,15 @@ function Home() {
 
           <div className="info">
             <div className="total">
-              <strong>12</strong>
+              <strong>{totalProjects}</strong>
               Projetos ao Total
             </div>
             <div className="in-progress">
-              <strong>7</strong>
+              <strong>{developing}</strong>
               Em Desenvolvimento
             </div>
             <div className="finished">
-              <strong>4</strong>
+              <strong>{finished}</strong>
               Concluído
             </div>
           </div>
@@ -59,13 +83,11 @@ function Home() {
         <h1 className="sr-only">Trabalhos</h1>
 
         <div className="cards">
-          <Card />
-          <Card />
-          <Card />
-          <Card />
-          <Card />
-          <Card />
-          <Card />
+          {allProjects.map((project: Project) => {
+            return <Card key={project.id} project={project} />
+          })
+
+          }
         </div>
       </main>
     </div>
