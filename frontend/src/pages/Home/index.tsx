@@ -22,7 +22,7 @@ function Home() {
     async function loadData() {
       const response = await api.get(`projects/${user?.id}`);
 
-      console.log(response.data);
+      // console.log(response.data);
 
       setTotalProjects(response.data.totalProjects);
       setDeveloping(response.data.totalDeveloping);

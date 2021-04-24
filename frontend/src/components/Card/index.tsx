@@ -5,6 +5,7 @@ import pt from 'date-fns/locale/pt';
 
 import DeleteJob from '../../assets/img/trash-24.svg';
 import EditJob from '../../assets/img/edit-24.svg';
+import Lock from '../../assets/img/lock.svg';
 
 import './styles.css';
 
@@ -59,17 +60,26 @@ const Card: React.FC<ProjectItemProps> = ({ project }) => {
         1.000,00
       </div> */}
       <div className="status column">
-        { project.status === 0 ? <p>Planejado</p> : project.status === 1 ? <p>Em Desenvolvimento</p> : project.status === 2 ? <p>Cancelado</p> : <p>Concluído</p>
+        {project.status === 0 ? <p>Planejado</p> : project.status === 1 ? <p>Em Desenvolvimento</p> : project.status === 2 ? <p>Cancelado</p> : <p>Concluído</p>
         }
       </div>
-      
+
       <div className="actions column flex">
         <p className="sr-only">Ações</p>
+        {project.status === 2 || project.status === 3 ?
+          (
+            <button title="Editar Projeto">
+              <img src={Lock} alt="New Project" />
+            </button>
+          ) :
 
-        <button title="Editar Projeto">
-          <img src={EditJob} alt="New Project" />
-        </button>
-
+          (
+            <button title="Editar Projeto">
+              <img src={EditJob} alt="New Project" />
+            </button>
+            
+          )
+        }
         <button title="Excluir Projeto" className="delete">
           <img src={DeleteJob} alt="Delete Project" />
         </button>
