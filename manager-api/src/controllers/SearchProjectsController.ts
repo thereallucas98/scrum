@@ -1,5 +1,5 @@
 import { Request, Response } from 'express';
-import { getCustomRepository } from 'typeorm';
+import { getCustomRepository, Not } from 'typeorm';
 import { ProjectRepository } from '../repositories/ProjectsRepository';
 import { UserRepository } from '../repositories/UserRepository';
 
@@ -15,13 +15,13 @@ class SearchProjectsController {
     const userRepository = getCustomRepository(UserRepository);
 
     const user = await userRepository.findOne({
-      id,
+      id
     })
 
     const total = await projectsRepository.find({
       relations: ["user"],
       where: {
-        user: user
+        user: user,
       }
     });
 

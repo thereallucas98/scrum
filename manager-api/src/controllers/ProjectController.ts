@@ -1,5 +1,5 @@
 import { Request, Response } from 'express';
-import { getCustomRepository } from 'typeorm';
+import { getCustomRepository, Not } from 'typeorm';
 import { ProjectRepository } from '../repositories/ProjectsRepository';
 import { UserRepository } from '../repositories/UserRepository';
 
@@ -106,6 +106,9 @@ class ProjectsController {
     const all = await projectsRepository.find({ 
       order: {
         viability: "DESC",
+      },
+      where: {
+      status: Not(3),
       },
       relations: ["user"]
     })
