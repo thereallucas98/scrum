@@ -34,8 +34,6 @@ function Home() {
     loadData();
   }, [allProjects, totalProjects, developing, finished])
 
-
-
   return (
     <div className="container">
       <header className="home-header">

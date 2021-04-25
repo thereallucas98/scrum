@@ -1,0 +1,161 @@
+.container-edit-project {
+  width: 100%;
+  height: 100vh;
+}
+
+.project-content {
+  padding: 2rem;
+  
+  display: flex;
+}
+
+.project-content aside.card-project {
+  background: var(--color-card-background);
+  color: var(--color-card-title);
+
+  border: 1px solid #E1E3E6;
+  border-radius: .313rem;
+
+  width: 25rem;
+  height: auto;
+
+  margin-right: 8rem;
+
+  text-align: center;
+
+  padding: 3.875rem 4.625rem;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.project-content aside img {
+  border-radius: 50%;
+
+  border: .25rem var(--color-secondary) solid;
+
+  width: 11.25rem;
+  height: 11.25rem;
+
+  margin-bottom: 1.5rem;
+}
+
+.project-content aside h2 {
+  font-family: IBM Plex Sans;
+  font-weight: 600;
+  font-size: 1.75rem;
+  line-height: 1.875rem;
+
+
+  margin-bottom: 3.875rem;
+}
+
+.project-content aside button.button:last-child {
+  margin-top: 1rem;
+  background-color: var(--color-delete);
+}
+
+.project-content aside button.button {
+  width: 100%;
+  height: 3.5rem;
+  border-radius: 0.5rem;
+
+  background: var(--color-save);
+  color: var(--color-text);
+
+  transition: 0.5s;
+
+  cursor: pointer;
+}
+
+.project-content aside button img {
+  margin-top: 0.25rem;
+  width: 3rem;
+  height: 3rem;
+
+  border: 0;
+}
+
+.project-content aside button.button:hover {
+  background: var();
+}
+
+.project-content main {
+  flex: 1;
+}
+
+.project-content form fieldset {
+  border: none;
+}
+
+.project-content form fieldset + fieldset {
+  margin-top: 3.5rem;
+}
+
+.project-content form fieldset legend {
+  color: var(--color-card-title);
+
+  font-family: IBM Plex Sans;
+  font-weight: 600;
+  font-size: 2rem;
+  line-height: 2.625rem;
+}
+
+.project-content fieldset .separator {
+  margin-bottom: 2rem;
+}
+
+.project-content form .input-group {
+  display: flex;
+  margin-top: 1.5rem;
+}
+
+.project-content form .input-wrapper {
+  margin-top: 1.5rem;
+}
+
+.project-content form .input-group .input-wrapper + .input-wrapper {
+  margin-left: 1.5rem;
+}
+
+.project-content label {
+  display: inline-block;
+
+  font-family: IBM Plex Sans;
+  font-weight: 500;
+  color: #787880;
+
+  margin-bottom: 1rem;
+}
+
+.project-content input, textarea  {
+  font-family: IBM Plex Sans;
+  font-weight: 500;
+
+  height: 3rem;
+
+  background: #FCFDFF;
+
+  border: 1px solid #E1E3E6;
+  border-radius: .313rem;
+
+  padding: 0.75rem 1.5rem;
+
+  width: 100%;
+
+  color: var(--color-card-label);
+}
+
+.project-content p {
+  color: var(--color-card-label);
+}
+
+::placeholder {
+  color: var(--color-card-label);
+}
+
+.input-wrapper{
+  width: 100%;
+}

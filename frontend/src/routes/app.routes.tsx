@@ -7,6 +7,7 @@ import AddProject from '../pages/AddProject';
 import Home from '../pages/Home';
 import Loading from '../components/Loading';
 import Profile from '../pages/Profile';
+import EditProject from '../pages/EditProject';
 
 const AppRoutes: React.FC = () => {
   const { loading } = useAuth();
@@ -18,6 +19,7 @@ const AppRoutes: React.FC = () => {
         <Route path="/dashboard" component={Home} />
         <Route path="/add-project" component={AddProject} />
         <Route path="/profile" component={Profile} />
+        <Route path="/project/:id" component={EditProject} />
       </Switch>
     );
   }

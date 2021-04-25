@@ -29,7 +29,7 @@ export const AuthProvider: React.FC = ({ children }) => {
       const storageUser = await localStorage.getItem("Heloo:user");
       const storagedToken = await localStorage.getItem("Heloo:token");
 
-      await new Promise(resolve => setTimeout(resolve, 2000));
+      // await new Promise(resolve => setTimeout(resolve, 2000));
 
       if (storageUser && storagedToken) {
         setUser(JSON.parse(storageUser));
