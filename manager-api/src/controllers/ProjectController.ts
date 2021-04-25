@@ -116,6 +116,18 @@ class ProjectsController {
     return response.status(201).json(all);
   }
 
+  async getProject(request: Request, response: Response) {
+    const { id } = request.params;
+
+    const projectRepository = getCustomRepository(ProjectRepository);
+
+    const project = await projectRepository.findOne({
+      id
+    });
+
+    return response.status(200).json(project);
+  }
+
   async edit(request: Request, response: Response) {
     const { id } = request.params;
 

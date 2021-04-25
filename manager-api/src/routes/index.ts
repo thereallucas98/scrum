@@ -29,8 +29,9 @@ router.post('/auth', AuthController.authenticate);
 // Project Routes
 router.post('/project', projectController.create);
 router.get('/projects', projectController.list);
+router.get('/project/:id', projectController.getProject);
 router.patch('/project/:id', projectController.edit);
-router.delete('project/:id', projectController.delete); 
+router.delete('/project/:id', projectController.delete); 
 
 // Project Filters
 router.get('/projects/:id', searchController.headerFilters);
