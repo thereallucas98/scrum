@@ -18,7 +18,7 @@ const searchController = new SearchProjectsController;
 
 // User Routes
 router.post('/user', userController.create);
-router.put('/user/:id', userController.edit);
+router.patch('/user/:id', userController.edit);
 router.get('/user', userController.list);
 router.get('/user/:id', userController.GetAnUser);
 router.delete('/user/:id', userController.delete);

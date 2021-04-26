@@ -41,26 +41,26 @@ class UserController {
     const {
       name,
       email,
-      password,
-      can_create
+      // password,
+      // can_create
     } = request.body;
 
     const data = { 
       name,
       email,
-      password,
-      can_create
+      // password,
+      // can_create
     }
 
     const userRepository = getCustomRepository(UserRepository);
 
     await userRepository.update(id, data);
 
-    const userUpdate = await userRepository.findOne({
+    const user = await userRepository.findOne({
       id
     });
 
-    return response.status(200).json(userUpdate);
+    return response.status(200).json(user);
   }
 
   async list(request: Request, response: Response) {
