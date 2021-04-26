@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { parseISO, format, formatRelative, formatDistance, parse } from 'date-fns';
+import { parseISO, formatDistance } from 'date-fns';
 import { useHistory } from 'react-router-dom';
 
 import api from '../../services/api';
@@ -78,12 +78,6 @@ const Card: React.FC<ProjectItemProps> = ({ project }) => {
     }
     loadTimer();
   }, [])
-
-  // useEffect(() => {
-  //   if (changeStatusBoolean) {
-  //     handleChange()
-  //   }
-  // }, [status])
 
   async function handleChange() {
 

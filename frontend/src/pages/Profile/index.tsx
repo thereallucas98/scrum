@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from 'react';
-import { useHistory } from 'react-router';
 import { useParams } from 'react-router-dom';
 import Header from '../../components/Header';
 
@@ -16,11 +15,11 @@ interface ProfileParams {
 function Profile() {
   const { user, signOut, updateProfile } = useAuth();
   const params = useParams<ProfileParams>();
-  const history = useHistory();
+  // const history = useHistory();
 
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
-  const [url, setUrl] = useState('');
+  // const [url, setUrl] = useState('');
 
   useEffect(() => {
     async function loadUserData() {

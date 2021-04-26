@@ -1,5 +1,5 @@
 import React, { useState, FormEvent } from 'react';
-import { useHistory } from "react-router-dom";
+// import { useHistory } from "react-router-dom";
 import { toast, ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
@@ -13,7 +13,7 @@ function Login() {
   const emptyFields = () => toast.error('Um dos campos podem estar vazio, verifique.');
   const errorNotification = () => toast.error('Algo deu errado no Login, fale com seu Administrador');
 
-  const history = useHistory();
+  // const history = useHistory();
   const { signIn } = useAuth();
 
   const [email, setEmail] = useState('');

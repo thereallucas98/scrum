@@ -8,7 +8,7 @@ import api from '../../services/api';
 import './styles.css';
 
 function CreateAccount() {
-  const succeded = () => toast.success(`Opa! O seu cadastro foi realizado com sucesso no sistema.`);
+  // const succeded = () => toast.success(`Opa! O seu cadastro foi realizado com sucesso no sistema.`);
   const emptyNotification = () => toast.error('Um dos campos podem estar vazio, verifique');
   const hasUserNotify = () => toast.warning(`Ops! Este e-mail já está cadastrado no sistema.`);
 
