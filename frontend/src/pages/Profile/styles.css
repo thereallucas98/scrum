@@ -148,13 +148,39 @@
   width: 100%;
 }
 
-@media (max-width: 320px) {
-  .container-profile {
-    max-width: 320px;
+@media (max-width: 425px) {
+  .profile-content aside img {
+    width: 6rem;
+    height: 6rem;
+  }
+}
 
+@media (max-width: 768px) {
+  .profile-content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+  }
+
+  .profile-content main {
+  border-radius: .313rem;
+  text-align: center;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
   }
 
   .profile-content aside.card-profile {
-    
+    width: 100%;
+    margin: 0;
+
+    margin-bottom: 2rem;
   }
+
+  /* .profile-content input {
+    min-width: 90vh;
+  } */
 }

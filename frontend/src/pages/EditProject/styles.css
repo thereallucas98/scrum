@@ -159,3 +159,16 @@
 .input-wrapper{
   width: 100%;
 }
+
+@media (max-width: 768px) {
+  .project-content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+  }
+
+  .project-content aside.card-project {
+    margin: -2rem 0 1rem 0;
+  }
+}

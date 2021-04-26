@@ -222,3 +222,27 @@
   margin-top: -2.825rem;
   padding: 2rem;
 }
+
+@media (max-width: 425px) {
+  .container .home-header {
+    flex: 1;
+  }
+  .container h2 {
+    display: none;
+  }
+
+  #top {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+}
+
+@media (max-width: 425px) {
+  #summary .button {
+    display: none;
+  }
+  .search-groups {
+    display: none;
+  }
+}
