@@ -21,6 +21,7 @@ class SearchProjectsController {
     const total = await projectsRepository.find({
       order: {
         viability: "DESC",
+        status: "ASC",
       },
       relations: ["user"],
       where: {

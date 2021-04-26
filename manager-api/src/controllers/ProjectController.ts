@@ -135,13 +135,17 @@ class ProjectsController {
       description,
       viability,
       status,
+      finished_date
     } = request.body;
+
+   
 
     const projectsRepository = getCustomRepository(ProjectRepository);
 
     const projectVerified = await projectsRepository.findOneOrFail({
       id
     });
+    
 
     console.log(projectVerified);
 
@@ -155,6 +159,7 @@ class ProjectsController {
         description,
         viability,
         status,
+        finished_date,
       }
 
       console.log('É mudou!')
