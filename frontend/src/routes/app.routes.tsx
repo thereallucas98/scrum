@@ -18,7 +18,7 @@ const AppRoutes: React.FC = () => {
       <Switch>
         <Route path="/dashboard" component={Home} />
         <Route path="/add-project" component={AddProject} />
-        <Route path="/profile" component={Profile} />
+        <Route path="/profile/:id" component={Profile} />
         <Route path="/project/:id" component={EditProject} />
       </Switch>
     );

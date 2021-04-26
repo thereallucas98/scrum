@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { useHistory } from 'react-router-dom';
 
 import Notification from '../../assets/img/alert-octagon.svg';
 import AddProject from '../../assets/img/plus-24.svg';
@@ -6,6 +7,7 @@ import AddProject from '../../assets/img/plus-24.svg';
 import { useAuth } from '../../contexts/auth';
 
 import Card, { Project } from '../../components/Card';
+import Select from '../../components/Select';
 
 import './styles.css';
 import api from '../../services/api';
@@ -13,10 +15,16 @@ import api from '../../services/api';
 function Home() {
   const { user } = useAuth();
 
+  const history = useHistory();
+
   const [allProjects, setAllProjects] = useState([]);
   const [totalProjects, setTotalProjects] = useState('');
   const [developing, setDeveloping] = useState('');
   const [finished, setFinished] = useState('');
+
+  const [status, setStatus] = useState('');
+  const [viability, setViability] = useState('');
+  const [startDate, setStartDate] = useState('');
 
   useEffect(() => {
     async function loadData() {
@@ -34,6 +42,10 @@ function Home() {
     loadData();
   }, [allProjects, totalProjects, developing, finished])
 
+  function handleGoProfile() {
+    history.push(`/profile/${user?.id}`)
+  }
+
   return (
     <div className="container">
       <header className="home-header">
@@ -43,7 +55,7 @@ function Home() {
             <img src={Notification} alt="Alert" />
             Você está em 0 projetos!
           </span> */}
-          <a id="avatar-profile" href="/profile">
+          <a id="avatar-profile" onClick={handleGoProfile}>
             <p>{user?.name}<span>Meu Perfil</span></p>
             <img src="https:github.com/thereallucas98.png" />
           </a>
@@ -78,13 +90,70 @@ function Home() {
       </header>
 
       <main className="animate-up delay-2">
+        <div className="search-groups">
+          <div className="select-group">
+            <div className="select-wrapper">
+              <Select
+                name="type"
+                label="Viabilidade"
+                options={[
+                  { value: 1, label: 'Visibilidade Baixa' },
+                  { value: 2, label: 'Visibilidade Moderada Baixa' },
+                  { value: 3, label: 'Visibilidade Moderada' },
+                  { value: 4, label: 'Visibilidade Moderada Alta' },
+                  { value: 5, label: 'Visibilidade Alta' }
+                ]}
+                value={viability}
+                onChange={e => setViability(e.target.value)}
+              />
+            </div>
+            <div className="select-wrapper">
+              <Select
+                name="type"
+                label="Situação"
+                options={[
+                  { value: 0, label: 'Planejado' },
+                  { value: 1, label: 'Em Desenvolvimento' },
+                  { value: 2, label: 'Cancelado' },
+                  { value: 3, label: 'Concluído' }
+                ]}
+                value={status}
+                onChange={e => setStatus(e.target.value)}
+              />
+            </div>
+            <div className="select-wrapper">
+              <label htmlFor="start_date">Data de Início</label>
+              <input
+                type="date"
+                id="start_date"
+                name="start_date"
+                value={startDate}
+                onChange={e => setStartDate(e.target.value)}
+              />
+            </div>
+            <div className="select-wrapper">
+              <span></span>
+              <button className="button">
+                Filtrar
+              </button>
+            </div>
+
+            <div className="select-wrapper">
+              <span></span>
+              <button className="button delete">
+                Limpar
+              </button>
+            </div>
+          </div>
+        </div>
+
         <h1 className="sr-only">Trabalhos</h1>
 
         <div className="cards">
-          {allProjects.map((project: Project) => {
-            return <Card key={project.id} project={project} />
-          })
-
+          {
+            allProjects.map((project: Project) => {
+              return <Card key={project.id} project={project} />
+            })
           }
         </div>
       </main>

@@ -16,6 +16,7 @@ interface AuthContextData {
   user: User | null;
   signIn: (email: string, password: string) => Promise<void>;
   signOut(): void;
+  updateProfile: (email: string, password: string, id: string) => Promise<void>;
 }
 
 const AuthContext = createContext<AuthContextData>({} as AuthContextData);
@@ -78,12 +79,43 @@ export const AuthProvider: React.FC = ({ children }) => {
     history.push('/');
   }
 
+  async function updateProfile(name: string, email: string, id: string) {
+    // const data = {
+    //   name,
+    //   email,
+    //   id
+    // }
+
+    const response = await api.patch(`/user/${id}`, {
+      name,
+      email,
+    });
+
+    console.log(response.data);
+
+    const user = {
+      id: response.data.id,
+      name: response.data.name,
+      email: response.data.email,
+      password: response.data.password,
+      can_create: response.data.can_create,
+      created_at: response.data.create_at
+    }
+
+    console.log(user);
+
+    // console.log(user);
+
+    setUser(user);
+  }
+
   return(
     <AuthContext.Provider value={{
       signed: !!user,
       user,
       signIn,
       signOut,
+      updateProfile,
       loading,
     }}>
       {children}

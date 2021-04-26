@@ -44,7 +44,7 @@ const Card: React.FC<ProjectItemProps> = ({ project }) => {
       // console.log('oi')
       // console.log(typeof(project.status))
       // console.log(project.finished_date)
-      let isBigger = true ? parseISO(String(project.start_date)) <= new Date() : false;
+      let isBigger = true ? parseISO(String(project.start_date)) >= new Date() : false;
 
       if ((project.status === 2 || project.status === 3) && project.finished_date != null) {
         console.log(project.finished_date)

@@ -1,4 +1,6 @@
 import React, { useEffect, useState } from 'react';
+import { useHistory } from 'react-router';
+import { useParams } from 'react-router-dom';
 import Header from '../../components/Header';
 
 import { useAuth } from '../../contexts/auth';
@@ -7,8 +9,14 @@ import api from '../../services/api';
 
 import './styles.css';
 
+interface ProfileParams {
+  id: string;
+}
+
 function Profile() {
-  const { user, signOut } = useAuth();
+  const { user, signOut, updateProfile } = useAuth();
+  const params = useParams<ProfileParams>();
+  const history = useHistory();
 
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
@@ -16,7 +24,7 @@ function Profile() {
 
   useEffect(() => {
     async function loadUserData() {
-      console.log(user?.id);
+      // console.log(user?.id);
 
       const response = await api.get(`/user/${user?.id}`)
 
@@ -33,6 +41,27 @@ function Profile() {
     await signOut();
   }
 
+  async function handleUpdateProfile() {
+    // alert('oi')
+    const data = {
+      name,
+      email,
+    }
+
+    try {
+      await updateProfile(data.name, data.email, params.id).then((resp) => {
+
+      }).catch((error) => {
+        console.log(error)
+      })
+    } catch(error) {
+      console.log(error)
+    }
+
+    
+    // history.push('/profile');
+  }
+
   return (
     <div className="container-profile animate-up delay-2">
       <Header headerTitle="Meu Perfil" />
@@ -42,7 +71,7 @@ function Profile() {
           <img src="http://github.com/thereallucas98.png" alt="David Lucas" />
           <h2>{user?.name}</h2>
 
-          <button className="button">Salvar Dados</button>
+          <button className="button" onClick={handleUpdateProfile}>Salvar Dados</button>
           <button className="button" onClick={handleLogout}>Sair</button>
         </aside>
         <main>

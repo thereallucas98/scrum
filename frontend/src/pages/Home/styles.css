@@ -98,6 +98,60 @@
   margin-bottom: 2rem;
 }
 
+.search-groups {
+  /* width: 100%; */
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-direction: column;
+
+  margin-bottom: 2rem;
+}
+
+.search-groups .select-group {
+  display: flex;
+  margin-top: -1.8rem;
+}
+
+.search-groups .select-group .select-wrapper + .select-wrapper {
+  margin-left: 1.5rem;
+}
+
+/* .search-groups button.button .delete {
+  background: var();
+} */
+
+.search-groups button.button {
+  width: 6rem;
+  height: 3rem;
+  border-radius: 0.5rem;
+
+  background: var(--color-save);
+  color: var(--color-text);
+
+  transition: 0.5s;
+
+  cursor: pointer;
+
+  margin-top: 1.2rem;
+}
+
+.search-groups input {
+  font-family: IBM Plex Sans;
+  font-weight: 400;
+
+  background: #FCFDFF;
+
+  border: 1px solid #E1E3E6;
+  border-radius: 0.5rem;
+
+  padding: 0.75rem 1.5rem;
+
+  width: 100%;
+
+  color: var(--color-card-label);
+}
+
 .info > div {
   font-size: 1rem;
   font-weight: 400;
