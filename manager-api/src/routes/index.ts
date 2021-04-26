@@ -35,6 +35,7 @@ router.delete('/project/:id', projectController.delete);
 
 // Project Filters
 router.get('/projects/:id', searchController.headerFilters);
+router.get('/filter/:id', searchController.filterSet);
 
 // router.post('/test', projectController.test);
 
