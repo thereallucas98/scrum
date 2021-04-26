@@ -148,13 +148,13 @@
   width: 100%;
 }
 
-/* @media (max-width: 320px) {
+@media (max-width: 320px) {
   .container-profile {
     max-width: 320px;
 
   }
 
   .profile-content aside.card-profile {
-    flex-direction: column;
+    
   }
-} */
+}
