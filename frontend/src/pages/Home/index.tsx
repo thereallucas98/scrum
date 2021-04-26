@@ -1,4 +1,12 @@
 import React, { useState, useEffect } from 'react';
+import {
+  parseISO,
+  format,
+  formatRelative,
+  formatDistance,
+  parse
+} from 'date-fns';
+
 import { useHistory } from 'react-router-dom';
 
 import Notification from '../../assets/img/alert-octagon.svg';
@@ -18,13 +26,16 @@ function Home() {
   const history = useHistory();
 
   const [allProjects, setAllProjects] = useState([]);
+  const [filterProjects, setFiltersProjects] = useState([]);
   const [totalProjects, setTotalProjects] = useState('');
   const [developing, setDeveloping] = useState('');
   const [finished, setFinished] = useState('');
 
+  const [displayProject, setDisplayProject] = useState(true);
+
   const [status, setStatus] = useState('');
   const [viability, setViability] = useState('');
-  const [startDate, setStartDate] = useState('');
+  // const [startDate, setStartDate] = useState('');
 
   useEffect(() => {
     async function loadData() {
@@ -44,6 +55,32 @@ function Home() {
 
   function handleGoProfile() {
     history.push(`/profile/${user?.id}`)
+  }
+
+  function handleClear() {
+    setViability('');
+    setStatus('');
+
+    setDisplayProject(true);
+  }
+
+  async function handleFilter() {
+    console.log(status);
+    console.log(viability);
+    // console.log(startDate);
+    // let startDateFilter = new Date(startDate);
+    // console.log(String(startDateFilter.toISOString()))
+
+    const statusFitler = status === '' ? undefined : Number(status);
+    const viabilityFilter = viability === '' ? undefined : Number(viability);
+
+    const response = await api.get(`/filter/${user?.id}?status=${statusFitler}&viability=${viabilityFilter}`)
+
+    console.log(response);
+
+    setFiltersProjects(response.data.total);
+
+    setDisplayProject(false);
   }
 
   return (
@@ -121,7 +158,7 @@ function Home() {
                 onChange={e => setStatus(e.target.value)}
               />
             </div>
-            <div className="select-wrapper">
+            {/* <div className="select-wrapper">
               <label htmlFor="start_date">Data de Início</label>
               <input
                 type="date"
@@ -130,17 +167,17 @@ function Home() {
                 value={startDate}
                 onChange={e => setStartDate(e.target.value)}
               />
-            </div>
+            </div> */}
             <div className="select-wrapper">
               <span></span>
-              <button className="button">
+              <button className="button" onClick={handleFilter}>
                 Filtrar
               </button>
             </div>
 
             <div className="select-wrapper">
               <span></span>
-              <button className="button delete">
+              <button className="button delete" onClick={handleClear}>
                 Limpar
               </button>
             </div>
@@ -151,9 +188,15 @@ function Home() {
 
         <div className="cards">
           {
-            allProjects.map((project: Project) => {
-              return <Card key={project.id} project={project} />
-            })
+            displayProject === true ? (
+              allProjects.map((project: Project) => {
+                return <Card key={project.id} project={project} />
+              })
+            ) : (
+              filterProjects.map((project: Project) => {
+                return <Card key={project.id} project={project} />
+              })
+            )
           }
         </div>
       </main>
