@@ -32,6 +32,30 @@ function EditProject() {
     })
   }, [params.id])
 
+  async function handleEdit() {
+    if (status === '2' || status === '3') {
+      let date = new Date();
+
+      let finishedDate = String(date.toISOString());
+
+      const data = {
+        status,
+        description,
+        viability,
+        finished_date: finishedDate
+      }
+
+      try {
+        console.log(data);
+        await api.patch(`project/${params.id}`, data);
+        history.push('/dashboard');
+      } catch (error) {
+        console.log(error);
+      }
+    }
+  }
+
+
   async function handleDeleteProject() {
     const data = String(params.id);
     try {
@@ -50,7 +74,7 @@ function EditProject() {
         <aside className="card-project">
           <h2>{name}</h2>
 
-          <button className="button">Atualizar</button>
+          <button className="button" onClick={handleEdit}>Atualizar</button>
           <button
             className="button"
             title="Excluir Projeto" onClick={handleDeleteProject}>

@@ -54,6 +54,17 @@
   justify-self: flex-end;
 }
 
+.card .select-box {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.card .select-box img {
+  cursor: pointer;
+  margin-left: 1rem;
+}
+
 .card .column > span {
   display:block;
 

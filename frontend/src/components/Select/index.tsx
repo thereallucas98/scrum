@@ -3,7 +3,7 @@ import React, { SelectHTMLAttributes } from 'react';
 import './styles.css';
 
 interface SelectProps extends SelectHTMLAttributes<HTMLSelectElement> {
-    label: string;
+    label?: string;
     name: string;
     options: Array<{
         value: string | number;

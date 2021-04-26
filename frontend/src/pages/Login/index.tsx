@@ -72,7 +72,7 @@ function Login() {
               />
             </div>
           </fieldset>
-          <button className="button-access" onClick={handleLogin}>
+          <button className="button-access" onClick={handleLogin} onTouchStart={handleLogin}>
             Acessar
             </button>
           <a href="/create-account">Não possui conta? Crie uma!</a>

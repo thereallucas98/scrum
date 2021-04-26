@@ -74,10 +74,12 @@ function Profile() {
               <div className="input-wrapper">
                 <label htmlFor="avatar">Link da foto</label>
                 <input
-                  placeholder="https://"
+                  // placeholder="https://"
+                  placeholder="Em manutenção"
                   type="url"
                   id="avatar"
                   name="avatar"
+                  readOnly
                 />
               </div>
             </fieldset>
