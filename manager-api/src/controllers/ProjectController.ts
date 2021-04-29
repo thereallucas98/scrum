@@ -106,6 +106,7 @@ class ProjectsController {
     const all = await projectsRepository.find({ 
       order: {
         viability: "DESC",
+        // start_date: "ASC"
       },
       where: {
       status: Not(3),

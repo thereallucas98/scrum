@@ -1,5 +1,5 @@
 import { Request, Response } from 'express';
-import { getCustomRepository, ILike, Equal, Raw } from 'typeorm';
+import { getCustomRepository, ILike, Equal, Raw, Like } from 'typeorm';
 import { ProjectRepository } from '../repositories/ProjectsRepository';
 import { UserRepository } from '../repositories/UserRepository';
 
@@ -63,8 +63,15 @@ class SearchProjectsController {
     const {
       status, 
       viability, 
-      // start_date 
+      start_date 
     } = request.query;
+
+    // console.log(typeof(start_date))
+
+    // let newDate = new Date(start_date.toString())
+
+    // console.log(typeof(newDate))
+    // console.log(newDate)
 
     const projectsRepository = getCustomRepository(ProjectRepository);
     const userRepository = getCustomRepository(UserRepository);
@@ -79,9 +86,15 @@ class SearchProjectsController {
         user: user,
         viability: viability ? viability : ILike('%'),
         status: status ? status : ILike('%'),
-        // start_date: start_date ?  Equal(new Date(start_date.toLocaleString())) : ILike('%')
+        start_date: start_date ?  Equal(start_date.toString()) : ILike('%')
       }
     });
+
+    // const total = await projectsRepository.createQueryBuilder()
+    // .where('creator_id = :id', { id })
+    // // .andWhere('status = :status', { status })
+    // .andWhere('start_date = :start_date', { start_date })
+    // .getMany()
 
     return response.status(200).json({
       total,

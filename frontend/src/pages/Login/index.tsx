@@ -43,8 +43,14 @@ function Login() {
   }
   return (
     <div className="container-login">
-      <div />
-      <section>
+      <section id="left-section">
+        <h1>
+          <span>Scrum</span>
+          <span>For</span>
+          <span>You</span>
+        </h1>
+      </section>
+      <section id="right-section">
         <form action="">
           <fieldset>
             <legend>Realize o seu Login</legend>
