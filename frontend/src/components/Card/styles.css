@@ -27,7 +27,7 @@
 
 .card:hover {
   background: 
-  linear-gradient(90deg, rgba(10, 209, 219, 0.1) 1%, rgba(252, 253, 255, 0.1) 51.4%), white;
+  linear-gradient(90deg, rgba(0, 180, 216, 0.50) 1%, rgba(252, 253, 255, 0.1) 51.4%), white;
 }
 
 .card::before {

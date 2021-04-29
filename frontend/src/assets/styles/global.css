@@ -8,19 +8,19 @@
   --color-background: #F0F2F5;
   --color-text: #FCFDFF;
 
-  --color-primary: #00A0E6;
+  --color-primary: #03045e;
   --color-secondary: #FCFDFF;
-  --color-secondary-hover: #0ad1db;
+  --color-secondary-hover: #0077b6;
   
   --color-input-background: #F8F8FC;
   --color-button-text: #FFFFFF;
-  --color-hairline-in-dark: #0AD2DC;
+  --color-hairline-in-dark: #0077b6;
   --color-hairline-in-light: #E1E3E5;
 
   --color-card-background: var(--color-text);
-  --color-card-title: #0AD2DC;
+  --color-card-title: #0077b6;
   --color-card-label: #BFBFCC;
-  --color-card-content: #0AD2DC;
+  --color-card-content: #E81D2C;
 
   --color-cancel: #E1E3E5;
   --color-delete: #EB3B35; 
