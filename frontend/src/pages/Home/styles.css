@@ -1,6 +1,6 @@
 .container {
   width: 100%;
-  height: 100vh;
+  /* height: 100vh; */
 }
 
 .container header.home-header {
@@ -221,6 +221,20 @@
 .container main {
   margin-top: -2.825rem;
   padding: 2rem;
+}
+
+.container main .cards {
+  height: calc(60vh - 6.5rem);
+  overflow-y: scroll;
+}
+
+.container main .cards::-webkit-scrollbar {
+  width: 10px;
+}
+
+.container main .cards::-webkit-scrollbar-thumb {
+  background-color: var(--color-primary);
+  border-radius: 6px;
 }
 
 @media (max-width: 425px) {

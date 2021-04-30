@@ -21,6 +21,7 @@ function Login() {
 
   async function handleLogin(e: FormEvent) {
     e.preventDefault();
+    console.log('Função login!')
 
     if (email === '' || password === '') {
       emptyFields();

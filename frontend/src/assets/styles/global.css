@@ -34,6 +34,18 @@
   --color-header-inner-title: var(--color-card-label)
 }
 
+html::-webkit-scrollbar {
+  width: 10px; 
+}
+
+html::-webkit-scrollbar-track {
+  background: var(--color-text);
+}
+
+html::-webkit-scrollbar-thumb {
+  background-color: var(--color-primary);
+}
+
 
 /* tags styling */
 body {
