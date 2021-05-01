@@ -3,9 +3,10 @@ import { useParams } from 'react-router-dom';
 import { useHistory } from 'react-router-dom';
 
 import Header from '../../components/Header';
-
-import Trash from '../../assets/img/trash-24-white.svg';
 import Select from '../../components/Select';
+
+import Plus from '../../assets/img/plus-24.svg';
+import Trash from '../../assets/img/trash-24-white.svg';
 
 import './styles.css';
 import api from '../../services/api';
@@ -141,6 +142,9 @@ function EditProject() {
             </thead>
           </table>
       </div>
+      <button className="float">
+        <img src={Plus} alt="Add Log" />
+      </button>
     </div>
   );
 }

@@ -16,7 +16,7 @@ const AppRoutes: React.FC = () => {
   } else {
     return (
       <Switch>
-        <Route path="/dashboard" component={Home} />
+        <Route path="/" exact component={Home} />
         <Route path="/add-project" component={AddProject} />
         <Route path="/profile/:id" component={Profile} />
         <Route path="/project/:id" component={EditProject} />

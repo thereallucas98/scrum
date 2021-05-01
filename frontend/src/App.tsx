@@ -11,11 +11,9 @@ function App() {
   return (
     <AuthProvider>
       <BrowserRouter>
-        <Switch>
-          <Router history={history}>
-            <Routes />
-          </Router>
-        </Switch>
+        <Router history={history}>
+          <Routes />
+        </Router>
       </BrowserRouter>
     </AuthProvider>
   );

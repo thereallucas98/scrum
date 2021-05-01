@@ -40,7 +40,6 @@ export const AuthProvider: React.FC = ({ children }) => {
       setLoading(false);
       // history.push('/dashboard');
     }
-
     loadStorageData();
   }, [])
 

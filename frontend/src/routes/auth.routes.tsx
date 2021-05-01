@@ -16,7 +16,7 @@ const AuthRoutes: React.FC = () => {
   } else {
     return (
       <BrowserRouter>
-        <Route path="/" exact component={Login} />
+        <Route path="/" component={Login} />
         <Route path="/create-account" component={CreateAccount} />
       </BrowserRouter>
     );
