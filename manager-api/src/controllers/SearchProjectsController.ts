@@ -1,5 +1,5 @@
 import { Request, Response } from 'express';
-import { getCustomRepository, ILike, Equal, Raw, Like } from 'typeorm';
+import { getCustomRepository, ILike, Equal, Raw, Like, Between, In, Any } from 'typeorm';
 import { ProjectRepository } from '../repositories/ProjectsRepository';
 import { UserRepository } from '../repositories/UserRepository';
 
@@ -86,7 +86,7 @@ class SearchProjectsController {
         user: user,
         viability: viability ? viability : ILike('%'),
         status: status ? status : ILike('%'),
-        start_date: start_date ?  Equal(start_date.toString()) : ILike('%')
+        start_date: start_date ?  Any([`%${start_date}%`, `%${start_date}%`]) : ILike('%`')
       }
     });
 
