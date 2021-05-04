@@ -164,30 +164,6 @@
   width: 100%;
 }
 
-.cards-log section {
-  background: #000;
-}
-
-.float {
-  position: fixed;
-	width:60px;
-	height:60px;
-	bottom:40px;
-	right:40px;
-	background-color: var(--color-secondary-hover);
-	color:#FFF;
-	border-radius:50px;
-	text-align:center;
-	box-shadow: 2px 2px 3px #999;
-
-  /* z-index: 99999; */
-}
-
-/* button.fix-right-button img {
-  width: 2rem;
-  height: 2rem;
-} */
-
 @media (max-width: 768px) {
   .project-content {
     display: flex;

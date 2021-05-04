@@ -10,7 +10,7 @@ interface HeaderProps {
 const Header: React.FC<HeaderProps> = ({ headerTitle }) => {
   return(
     <header className="page-header inner">
-        <a href="/dashboard" className="back">
+        <a href="/" className="back">
           <img src={GoBack} alt="Voltar" />
         </a>
         <h1>{headerTitle}</h1>

@@ -133,18 +133,6 @@ function EditProject() {
           </form>
         </main>
       </div>
-      <div className="card-logs">
-          <table>
-            <thead>
-              <tr>
-                <th>1</th>
-              </tr>
-            </thead>
-          </table>
-      </div>
-      <button className="float">
-        <img src={Plus} alt="Add Log" />
-      </button>
     </div>
   );
 }
