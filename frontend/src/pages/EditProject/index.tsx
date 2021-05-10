@@ -5,7 +5,6 @@ import { useHistory } from 'react-router-dom';
 import Header from '../../components/Header';
 import Select from '../../components/Select';
 
-import Plus from '../../assets/img/plus-24.svg';
 import Trash from '../../assets/img/trash-24-white.svg';
 
 import './styles.css';

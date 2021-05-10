@@ -32,7 +32,8 @@ function Home() {
 
   useEffect(() => {
     async function loadData() {
-      const response = await api.get(`projects/${user?.id}`);
+      const userId = user?.id;
+      const response = await api.get(`projects/${userId}`);
 
       // console.log(response.data);
 
@@ -45,10 +46,6 @@ function Home() {
 
     loadData();
   }, [allProjects, totalProjects, developing, finished])
-
-  function handleGoProfile() {
-    history.push(`/profile/${user?.id}`)
-  }
 
   function handleClear() {
     setViability('');
@@ -85,9 +82,9 @@ function Home() {
             <img src={Notification} alt="Alert" />
             Você está em 0 projetos!
           </span> */}
-          <a id="avatar-profile" onClick={handleGoProfile}>
+          <a id="avatar-profile" href={`/profile/${user?.id}`}>
             <p>{user?.name}<span>Meu Perfil</span></p>
-            <img src="https:github.com/thereallucas98.png" />
+            <img src="https:github.com/thereallucas98.png" alt="Profile" />
           </a>
         </section>
 
